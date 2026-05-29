@@ -13,304 +13,50 @@
   --zabka-dark: #1A1A1A;
   --accent: #FFD700;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--zabka-gray);
-  color: var(--zabka-dark);
-  line-height: 1.6;
-}
-
-.header {
-  background: linear-gradient(135deg, var(--zabka-green), var(--zabka-light));
-  color: white;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.25rem;
-}
-
-.header p {
-  opacity: 0.9;
-  font-size: 0.9rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-}
-
-.tab {
-  background: white;
-  border: 2px solid var(--zabka-light);
-  color: var(--zabka-green);
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  cursor: pointer;
-  white-space: nowrap;
-  font-weight: 600;
-  transition: all 0.2s;
-}
-
-.tab.active {
-  background: var(--zabka-green);
-  color: white;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.card h2 {
-  color: var(--zabka-green);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.budget-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.budget-btn {
-  background: var(--zabka-gray);
-  border: 2px solid transparent;
-  padding: 0.75rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s;
-  text-align: center;
-}
-
-.budget-btn:hover, .budget-btn.active {
-  border-color: var(--zabka-light);
-  background: white;
-  transform: translateY(-2px);
-}
-
-input, select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #E0E0E0;
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-input:focus, select:focus {
-  outline: none;
-  border-color: var(--zabka-light);
-}
-
-.btn-primary {
-  background: var(--zabka-green);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  width: 100%;
-  transition: all 0.2s;
-}
-
-.btn-primary:hover {
-  background: var(--zabka-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,166,81,0.3);
-}
-
-.result-box {
-  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-  border-left: 4px solid var(--zabka-green);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.result-box h3 {
-  color: var(--zabka-green);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.stat {
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.stat-value {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--zabka-green);
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 0.25rem;
-}
-
-.product-list {
-  margin: 1rem 0;
-}
-
-.product-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem;
-  border-bottom: 1px solid #EEE;
-}
-
-.product-item:last-child {
-  border-bottom: none;
-}
-
-.product-name {
-  font-weight: 600;
-}
-
-.product-price {
-  color: #666;
-}
-
-.product-points {
-  color: var(--zabka-green);
-  font-weight: 700;
-}
-
-.alert {
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-  font-weight: 600;
-}
-
-.alert-fire {
-  background: #FFF3E0;
-  border-left: 4px solid #FF6F00;
-  color: #E65100;
-}
-
-.alert-rocket {
-  background: #E3F2FD;
-  border-left: 4px solid #1976D2;
-  color: #0D47A1;
-}
-
-.alert-money {
-  background: #E8F5E9;
-  border-left: 4px solid var(--zabka-green);
-  color: var(--zabka-green);
-}
-
-.tip {
-  background: #FFF9C4;
-  border-left: 4px solid var(--accent);
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-}
-
-.ranking-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem;
-  background: var(--zabka-gray);
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-}
-
-.rank {
-  background: var(--zabka-green);
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.category-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.chip {
-  background: white;
-  border: 2px solid #E0E0E0;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-}
-
-.chip.active {
-  background: var(--zabka-green);
-  color: white;
-  border-color: var(--zabka-green);
-}
-
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 1.4rem;
-  }
-  .stats {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--zabka-gray); color: var(--zabka-dark); line-height: 1.6; }
+.header { background: linear-gradient(135deg, var(--zabka-green), var(--zabka-light)); color: white; padding: 1.5rem 1rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.header h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+.header p { opacity: 0.9; font-size: 0.9rem; }
+.container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+.tabs { display: flex; gap: 0.5rem; margin: 1rem 0; overflow-x: auto; padding-bottom: 0.5rem; }
+.tab { background: white; border: 2px solid var(--zabka-light); color: var(--zabka-green); padding: 0.75rem 1.25rem; border-radius: 8px; cursor: pointer; white-space: nowrap; font-weight: 600; transition: all 0.2s; }
+.tab.active { background: var(--zabka-green); color: white; }
+.card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.card h2 { color: var(--zabka-green); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
+.budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
+.budget-btn { background: var(--zabka-gray); border: 2px solid transparent; padding: 0.75rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; text-align: center; }
+.budget-btn:hover, .budget-btn.active { border-color: var(--zabka-light); background: white; transform: translateY(-2px); }
+input, select { width: 100%; padding: 0.75rem; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem; }
+input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
+.btn-primary { background: var(--zabka-green); color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.2s; }
+.btn-primary:hover { background: var(--zabka-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,166,81,0.3); }
+.result-box { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-left: 4px solid var(--zabka-green); padding: 1.5rem; border-radius: 8px; margin: 1rem 0; }
+.result-box h3 { color: var(--zabka-green); font-size: 1.5rem; margin-bottom: 0.5rem; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.stat { background: white; padding: 1rem; border-radius: 8px; text-align: center; }
+.stat-value { font-size: 1.8rem; font-weight: 700; color: var(--zabka-green); }
+.stat-label { font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
+.product-list { margin: 1rem 0; }
+.product-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border-bottom: 1px solid #EEE; }
+.product-item:last-child { border-bottom: none; }
+.product-name { font-weight: 600; }
+.product-price { color: #666; }
+.product-points { color: var(--zabka-green); font-weight: 700; }
+.alert { padding: 1rem; border-radius: 8px; margin: 1rem 0; font-weight: 600; }
+.alert-fire { background: #FFF3E0; border-left: 4px solid #FF6F00; color: #E65100; }
+.alert-rocket { background: #E3F2FD; border-left: 4px solid #1976D2; color: #0D47A1; }
+.alert-money { background: #E8F5E9; border-left: 4px solid var(--zabka-green); color: var(--zabka-green); }
+.tip { background: #FFF9C4; border-left: 4px solid var(--accent); padding: 1rem; border-radius: 8px; margin: 0.5rem 0; font-size: 0.95rem; }
+.ranking-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem; background: var(--zabka-gray); border-radius: 8px; margin-bottom: 0.5rem; }
+.rank { background: var(--zabka-green); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.hidden { display: none; }
+.category-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.chip { background: white; border: 2px solid #E0E0E0; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; user-select: none; }
+.chip.active { background: var(--zabka-green); color: white; border-color: var(--zabka-green); }
+.chip:hover { border-color: var(--zabka-light); }
+.category-counter { display: inline-block; background: var(--zabka-light); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; margin-left: 0.5rem; font-weight: 600; }
+@media (max-width: 768px) { .header h1 { font-size: 1.4rem; } .stats { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -328,7 +74,6 @@ input:focus, select:focus {
     <div class="tab" data-tab="porownaj">Czy to się opłaca?</div>
   </div>
 
-  <!-- TAB 1: KALKULATOR -->
   <div id="kalkulator" class="tab-content">
     <div class="card">
       <h2>💰 Tryb „Mam X zł w kieszeni”</h2>
@@ -343,7 +88,7 @@ input:focus, select:focus {
       </div>
       <input type="number" id="customBudget" placeholder="Lub wpisz własną kwotę" step="0.01" min="0">
       
-      <label>Kategoria produktów:</label>
+      <label>Kategorie produktów: <span class="category-counter" id="catCounter">Wszystkie</span></label>
       <div class="category-chips">
         <div class="chip active" data-cat="all">Wszystkie</div>
         <div class="chip" data-cat="piwo">Piwo</div>
@@ -366,33 +111,17 @@ input:focus, select:focus {
           <h3 id="resultTitle">Za 37,50 zł możesz zdobyć 1450 punktów</h3>
           <p id="resultRatio">38,67 pkt za 1 zł</p>
         </div>
-
         <div class="stats">
-          <div class="stat">
-            <div class="stat-value" id="totalValue">37,50 zł</div>
-            <div class="stat-label">Wartość koszyka</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="totalPoints">1450</div>
-            <div class="stat-label">Zdobyte punkty</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="pointsPerZl">38,67</div>
-            <div class="stat-label">Pkt / 1 zł</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="leftover">0,00 zł</div>
-            <div class="stat-label">Niewykorzystane</div>
-          </div>
+          <div class="stat"><div class="stat-value" id="totalValue">37,50 zł</div><div class="stat-label">Wartość koszyka</div></div>
+          <div class="stat"><div class="stat-value" id="totalPoints">1450</div><div class="stat-label">Zdobyte punkty</div></div>
+          <div class="stat"><div class="stat-value" id="pointsPerZl">38,67</div><div class="stat-label">Pkt / 1 zł</div></div>
+          <div class="stat"><div class="stat-value" id="leftover">0,00 zł</div><div class="stat-label">Niewykorzystane</div></div>
         </div>
-
         <h3 style="margin: 1.5rem 0 1rem; color: var(--zabka-green);">Proponowany koszyk:</h3>
         <div class="product-list" id="cartList"></div>
-
         <div id="promosUsed"></div>
         <div id="tips"></div>
       </div>
-
       <div class="card">
         <div class="alert alert-fire">🔥 Najlepsza promocja dnia: Napoje 2+1 gratis</div>
         <div class="alert alert-rocket">🚀 Najlepszy zwrot: 52 pkt za 1 zł w kategorii Lody</div>
@@ -401,23 +130,12 @@ input:focus, select:focus {
     </div>
   </div>
 
-  <!-- TAB 2: RANKING -->
   <div id="ranking" class="tab-content hidden">
-    <div class="card">
-      <h2>🏆 TOP 10 produktów z największą liczbą punktów</h2>
-      <div id="topProducts"></div>
-    </div>
-    <div class="card">
-      <h2>⭐ TOP 10 promocji punktowych</h2>
-      <div id="topPromos"></div>
-    </div>
-    <div class="card">
-      <h2>💎 Najlepszy stosunek punktów do ceny</h2>
-      <div id="bestRatio"></div>
-    </div>
+    <div class="card"><h2>🏆 TOP 10 produktów z największą liczbą punktów</h2><div id="topProducts"></div></div>
+    <div class="card"><h2>⭐ TOP 10 promocji punktowych</h2><div id="topPromos"></div></div>
+    <div class="card"><h2>💎 Najlepszy stosunek punktów do ceny</h2><div id="bestRatio"></div></div>
   </div>
 
-  <!-- TAB 3: SYMULATOR -->
   <div id="symulator" class="tab-content hidden">
     <div class="card">
       <h2>📊 Symulator punktów</h2>
@@ -426,17 +144,10 @@ input:focus, select:focus {
       <label>Średni budżet na wizytę:</label>
       <input type="number" id="avgBudget" value="25" step="0.01" min="0">
       <button class="btn-primary" id="simulateBtn">Symuluj</button>
-      
       <div id="simResult" class="hidden" style="margin-top: 1.5rem;">
         <div class="stats">
-          <div class="stat">
-            <div class="stat-value" id="monthlyPoints">17400</div>
-            <div class="stat-label">Punktów miesięcznie</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value" id="yearlyPoints">208800</div>
-            <div class="stat-label">Punktów rocznie</div>
-          </div>
+          <div class="stat"><div class="stat-value" id="monthlyPoints">17400</div><div class="stat-label">Punktów miesięcznie</div></div>
+          <div class="stat"><div class="stat-value" id="yearlyPoints">208800</div><div class="stat-label">Punktów rocznie</div></div>
         </div>
         <h3 style="margin: 1.5rem 0 1rem; color: var(--zabka-green);">Potencjalne nagrody roczne:</h3>
         <div id="potentialRewards"></div>
@@ -444,14 +155,12 @@ input:focus, select:focus {
     </div>
   </div>
 
-  <!-- TAB 4: NAGRODY -->
   <div id="nagrody" class="tab-content hidden">
     <div class="card">
       <h2>🎁 Kalkulator nagród</h2>
       <label>Ile masz punktów?</label>
       <input type="number" id="userPoints" value="4200" min="0">
       <button class="btn-primary" id="checkRewardsBtn">Sprawdź co odbierzesz</button>
-      
       <div id="rewardsResult" class="hidden" style="margin-top: 1.5rem;">
         <h3 style="color: var(--zabka-green); margin-bottom: 1rem;">Możesz odebrać:</h3>
         <div id="availableRewards"></div>
@@ -460,7 +169,6 @@ input:focus, select:focus {
     </div>
   </div>
 
-  <!-- TAB 5: POROWNAJ -->
   <div id="porownaj" class="tab-content hidden">
     <div class="card">
       <h2>🤔 Czy to się opłaca?</h2>
@@ -470,7 +178,6 @@ input:focus, select:focus {
       <label>Budżet:</label>
       <input type="number" id="compareBudget" value="30" step="0.01" min="0">
       <button class="btn-primary" id="compareBtn">Porównaj</button>
-      
       <div id="compareResult" class="hidden" style="margin-top: 1.5rem;">
         <div class="result-box" id="compareBox"></div>
       </div>
@@ -479,7 +186,6 @@ input:focus, select:focus {
 </div>
 
 <script>
-// BAZA PRODUKTÓW - demo data. W produkcji podłącz API Żabki
 const PRODUCTS = [
   {id: 1, name: "Piwo Lech 0.5L", price: 3.99, points: 50, cat: "piwo", promo: "2za7"},
   {id: 2, name: "Coca-Cola 0.5L", price: 4.49, points: 30, cat: "napoje", promo: "2plus1"},
@@ -509,9 +215,8 @@ const REWARDS = [
 ];
 
 let selectedBudget = 30;
-let selectedCategory = "all";
+let selectedCategories = ["all"];
 
-// TABS
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -521,7 +226,6 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
-// BUDGET SELECTION
 document.querySelectorAll('.budget-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.budget-btn').forEach(b => b.classList.remove('active'));
@@ -536,37 +240,62 @@ document.getElementById('customBudget').addEventListener('input', (e) => {
   document.querySelectorAll('.budget-btn').forEach(b => b.classList.remove('active'));
 });
 
-// CATEGORY SELECTION
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    selectedCategory = chip.dataset.cat;
+    const cat = chip.dataset.cat;
+    if (cat === 'all') {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      selectedCategories = ['all'];
+    } else {
+      const allChip = document.querySelector('.chip[data-cat="all"]');
+      if (allChip.classList.contains('active')) {
+        allChip.classList.remove('active');
+        selectedCategories = [];
+      }
+      if (chip.classList.contains('active')) {
+        chip.classList.remove('active');
+        selectedCategories = selectedCategories.filter(c => c !== cat);
+        if (selectedCategories.length === 0) {
+          allChip.classList.add('active');
+          selectedCategories = ['all'];
+        }
+      } else {
+        chip.classList.add('active');
+        selectedCategories.push(cat);
+      }
+    }
+    updateCategoryCounter();
   });
 });
 
-// ALGORYTM OPTYMALIZACJI
-function calculateOptimalBasket(budget, category = "all") {
-  let availableProducts = PRODUCTS.filter(p => 
-    category === "all" || p.cat === category
-  );
-  
-  // Sortuj po współczynniku punkty/zł
+function updateCategoryCounter() {
+  const counter = document.getElementById('catCounter');
+  if (selectedCategories.includes('all')) {
+    counter.textContent = 'Wszystkie';
+  } else {
+    counter.textContent = `${selectedCategories.length} ${selectedCategories.length === 1 ? 'wybrana' : 'wybrane'}`;
+  }
+}
+
+function calculateOptimalBasket(budget, categories = ["all"]) {
+  let availableProducts;
+  if (categories.includes('all')) {
+    availableProducts = [...PRODUCTS];
+  } else {
+    availableProducts = PRODUCTS.filter(p => categories.includes(p.cat));
+  }
   availableProducts.sort((a, b) => {
     const ratioA = (a.points + getPromoBonus(a)) / a.price;
     const ratioB = (b.points + getPromoBonus(b)) / b.price;
     return ratioB - ratioA;
   });
-  
   let basket = [];
   let remainingBudget = budget;
   let totalPoints = 0;
   let promosUsed = [];
-  
-  // Algorytm zachłanny z promocjami
   for (let product of availableProducts) {
     while (remainingBudget >= product.price) {
-      // Sprawdź promocje wielosztukowe
       if (product.promo === "2za7" && remainingBudget >= 7) {
         basket.push({...product, price: 3.5, note: "2 za 7 zł"});
         basket.push({...product, price: 3.5, note: "2 za 7 zł"});
@@ -592,28 +321,16 @@ function calculateOptimalBasket(budget, category = "all") {
         promosUsed.push("2+1 gratis - " + product.name);
         continue;
       }
-      
-      // Standardowy produkt
       basket.push(product);
       remainingBudget -= product.price;
       totalPoints += product.points;
-      
-      // Bonus punktowy
       if (product.promo === "bonus300") {
         totalPoints += 300;
         promosUsed.push("+300 pkt bonus - " + product.name);
       }
     }
   }
-  
-  return {
-    basket,
-    totalValue: budget - remainingBudget,
-    totalPoints,
-    leftover: remainingBudget,
-    promosUsed: [...new Set(promosUsed)],
-    ratio: totalPoints / (budget - remainingBudget)
-  };
+  return { basket, totalValue: budget - remainingBudget, totalPoints, leftover: remainingBudget, promosUsed: [...new Set(promosUsed)], ratio: totalPoints / (budget - remainingBudget) || 0 };
 }
 
 function getPromoBonus(product) {
@@ -621,52 +338,33 @@ function getPromoBonus(product) {
   return 0;
 }
 
-// OBLICZ KOSZYK
 document.getElementById('calculateBtn').addEventListener('click', () => {
-  const result = calculateOptimalBasket(selectedBudget, selectedCategory);
+  const result = calculateOptimalBasket(selectedBudget, selectedCategories);
   displayResult(result);
 });
 
 function displayResult(result) {
   document.getElementById('result').classList.remove('hidden');
-  document.getElementById('resultTitle').textContent = 
-    `Za ${result.totalValue.toFixed(2)} zł możesz zdobyć ${result.totalPoints} punktów`;
-  document.getElementById('resultRatio').textContent = 
-    `${result.ratio.toFixed(2)} pkt za 1 zł`;
+  document.getElementById('resultTitle').textContent = `Za ${result.totalValue.toFixed(2)} zł możesz zdobyć ${result.totalPoints} punktów`;
+  document.getElementById('resultRatio').textContent = `${result.ratio.toFixed(2)} pkt za 1 zł`;
   document.getElementById('totalValue').textContent = result.totalValue.toFixed(2) + ' zł';
   document.getElementById('totalPoints').textContent = result.totalPoints;
   document.getElementById('pointsPerZl').textContent = result.ratio.toFixed(2);
   document.getElementById('leftover').textContent = result.leftover.toFixed(2) + ' zł';
-  
-  // Lista produktów
   const cartList = document.getElementById('cartList');
   cartList.innerHTML = '';
   result.basket.forEach(item => {
     const div = document.createElement('div');
     div.className = 'product-item';
-    div.innerHTML = `
-      <div>
-        <div class="product-name">${item.name}</div>
-        ${item.note ? `<small style="color: var(--zabka-light);">${item.note}</small>` : ''}
-      </div>
-      <div>
-        <span class="product-price">${item.price.toFixed(2)} zł</span> • 
-        <span class="product-points">${item.points} pkt</span>
-      </div>
-    `;
+    div.innerHTML = `<div><div class="product-name">${item.name}</div>${item.note ? `<small style="color: var(--zabka-light);">${item.note}</small>` : ''}</div><div><span class="product-price">${item.price.toFixed(2)} zł</span> • <span class="product-points">${item.points} pkt</span></div>`;
     cartList.appendChild(div);
   });
-  
-  // Promocje
   const promosDiv = document.getElementById('promosUsed');
   if (result.promosUsed.length > 0) {
-    promosDiv.innerHTML = '<h4 style="margin: 1rem 0 0.5rem; color: var(--zabka-green);">Wykorzystane promocje:</h4>' +
-      result.promosUsed.map(p => `<div class="tip">✓ ${p}</div>`).join('');
+    promosDiv.innerHTML = '<h4 style="margin: 1rem 0 0.5rem; color: var(--zabka-green);">Wykorzystane promocje:</h4>' + result.promosUsed.map(p => `<div class="tip">✓ ${p}</div>`).join('');
   } else {
     promosDiv.innerHTML = '';
   }
-  
-  // Inteligentne podpowiedzi
   const tipsDiv = document.getElementById('tips');
   let tips = [];
   if (result.leftover >= 1.99 && result.leftover < 5) {
@@ -675,158 +373,86 @@ function displayResult(result) {
   if (result.leftover >= 2.50 && result.leftover < 3) {
     tips.push(`💡 Brakuje ${result.leftover.toFixed(2)} zł do aktywacji promocji 2+1.`);
   }
+  const twoInsteadOfOne = result.basket.filter(p => p.promo === "2za7" || p.promo === "2za4");
+  if (twoInsteadOfOne.length > 0) {
+    tips.push(`💡 Kupując 2 sztuki zamiast 1, otrzymałeś bonus punktowy!`);
+  }
   if (tips.length > 0) {
-    tipsDiv.innerHTML = '<h4 style="margin: 1rem 0 0.5rem; color: var(--zabka-green);">Podpowiedzi:</h4>' +
-      tips.map(t => `<div class="tip">${t}</div>`).join('');
+    tipsDiv.innerHTML = '<h4 style="margin: 1rem 0 0.5rem; color: var(--zabka-green);">Podpowiedzi:</h4>' + tips.map(t => `<div class="tip">${t}</div>`).join('');
   } else {
     tipsDiv.innerHTML = '';
   }
 }
 
-// RANKING
 function loadRankings() {
-  const productsWithRatio = PRODUCTS.map(p => ({
-    ...p,
-    ratio: (p.points + getPromoBonus(p)) / p.price
-  })).sort((a, b) => b.ratio - a.ratio);
-  
-  // TOP 10 produktów
+  const productsWithRatio = PRODUCTS.map(p => ({...p, ratio: (p.points + getPromoBonus(p)) / p.price})).sort((a, b) => b.ratio - a.ratio);
   const topProducts = document.getElementById('topProducts');
-  topProducts.innerHTML = productsWithRatio.slice(0, 10).map((p, i) => `
-    <div class="ranking-item">
-      <div class="rank">${i + 1}</div>
-      <div style="flex: 1;">
-        <div style="font-weight: 600;">${p.name}</div>
-        <div style="font-size: 0.85rem; color: #666;">${p.price.toFixed(2)} zł • ${p.points} pkt</div>
-      </div>
-      <div style="color: var(--zabka-green); font-weight: 700;">${p.ratio.toFixed(1)} pkt/zł</div>
-    </div>
-  `).join('');
-  
-  // TOP promocje
+  topProducts.innerHTML = productsWithRatio.slice(0, 10).map((p, i) => `<div class="ranking-item"><div class="rank">${i + 1}</div><div style="flex: 1;"><div style="font-weight: 600;">${p.name}</div><div style="font-size: 0.85rem; color: #666;">${p.price.toFixed(2)} zł • ${p.points} pkt</div></div><div style="color: var(--zabka-green); font-weight: 700;">${p.ratio.toFixed(1)} pkt/zł</div></div>`).join('');
   const promos = productsWithRatio.filter(p => p.promo).slice(0, 10);
-  document.getElementById('topPromos').innerHTML = promos.map((p, i) => `
-    <div class="ranking-item">
-      <div class="rank">${i + 1}</div>
-      <div style="flex: 1;">
-        <div style="font-weight: 600;">${p.name}</div>
-        <div style="font-size: 0.85rem; color: var(--zabka-light);">${p.promo}</div>
-      </div>
-      <div style="color: var(--zabka-green); font-weight: 700;">${p.ratio.toFixed(1)} pkt/zł</div>
-    </div>
-  `).join('');
-  
-  // Najlepszy stosunek
+  document.getElementById('topPromos').innerHTML = promos.map((p, i) => `<div class="ranking-item"><div class="rank">${i + 1}</div><div style="flex: 1;"><div style="font-weight: 600;">${p.name}</div><div style="font-size: 0.85rem; color: var(--zabka-light);">${p.promo}</div></div><div style="color: var(--zabka-green); font-weight: 700;">${p.ratio.toFixed(1)} pkt/zł</div></div>`).join('');
   const best = productsWithRatio[0];
-  document.getElementById('bestRatio').innerHTML = `
-    <div class="result-box">
-      <h3>${best.name}</h3>
-      <p style="font-size: 1.2rem; margin-top: 0.5rem;">${best.ratio.toFixed(2)} punktów za 1 zł</p>
-      <p style="margin-top: 0.5rem;">Cena: ${best.price.toFixed(2)} zł • Punkty: ${best.points}</p>
-    </div>
-  `;
+  document.getElementById('bestRatio').innerHTML = `<div class="result-box"><h3>${best.name}</h3><p style="font-size: 1.2rem; margin-top: 0.5rem;">${best.ratio.toFixed(2)} punktów za 1 zł</p><p style="margin-top: 0.5rem;">Cena: ${best.price.toFixed(2)} zł • Punkty: ${best.points}</p></div>`;
 }
 
-// SYMULATOR
 document.getElementById('simulateBtn').addEventListener('click', () => {
   const visits = parseInt(document.getElementById('visitsPerMonth').value);
   const budget = parseFloat(document.getElementById('avgBudget').value);
   const result = calculateOptimalBasket(budget);
-  
   const monthlyPoints = result.totalPoints * visits;
   const yearlyPoints = monthlyPoints * 12;
-  
   document.getElementById('simResult').classList.remove('hidden');
   document.getElementById('monthlyPoints').textContent = monthlyPoints;
   document.getElementById('yearlyPoints').textContent = yearlyPoints;
-  
   const potentialRewards = document.getElementById('potentialRewards');
   potentialRewards.innerHTML = REWARDS.map(r => {
     const count = Math.floor(yearlyPoints / r.cost);
-    return `<div class="product-item">
-      <span>${r.name}</span>
-      <span style="color: var(--zabka-green); font-weight: 700;">${count}x w roku</span>
-    </div>`;
+    return `<div class="product-item"><span>${r.name}</span><span style="color: var(--zabka-green); font-weight: 700;">${count}x w roku</span></div>`;
   }).join('');
 });
 
-// NAGRODY
 document.getElementById('checkRewardsBtn').addEventListener('click', () => {
   const points = parseInt(document.getElementById('userPoints').value);
   document.getElementById('rewardsResult').classList.remove('hidden');
-  
   const available = REWARDS.filter(r => r.cost <= points);
   const availableDiv = document.getElementById('availableRewards');
-  
   if (available.length === 0) {
     availableDiv.innerHTML = '<p style="color: #666;">Za mało punktów na nagrody. Zbieraj dalej!</p>';
   } else {
-    availableDiv.innerHTML = available.map(r => `
-      <div class="product-item">
-        <span>${r.name}</span>
-        <span style="color: var(--zabka-green); font-weight: 700;">${r.cost} pkt</span>
-      </div>
-    `).join('');
+    availableDiv.innerHTML = available.map(r => `<div class="product-item"><span>${r.name}</span><span style="color: var(--zabka-green); font-weight: 700;">${r.cost} pkt</span></div>`).join('');
   }
-  
   const nextReward = REWARDS.find(r => r.cost > points);
   if (nextReward) {
     const missing = nextReward.cost - points;
-    document.getElementById('nextReward').innerHTML = `
-      <div class="tip">🎯 Brakuje Ci ${missing} pkt do: ${nextReward.name} (${nextReward.cost} pkt)</div>
-    `;
+    document.getElementById('nextReward').innerHTML = `<div class="tip">🎯 Brakuje Ci ${missing} pkt do: ${nextReward.name} (${nextReward.cost} pkt)</div>`;
   } else {
     document.getElementById('nextReward').innerHTML = '';
   }
 });
 
-// PORÓWNAJ
 function loadCompareProducts() {
   const select = document.getElementById('compareProduct');
-  select.innerHTML = PRODUCTS.map(p => 
-    `<option value="${p.id}">${p.name} - ${p.price.toFixed(2)} zł (${p.points} pkt)</option>`
-  ).join('');
+  select.innerHTML = PRODUCTS.map(p => `<option value="${p.id}">${p.name} - ${p.price.toFixed(2)} zł (${p.points} pkt)</option>`).join('');
 }
 
 document.getElementById('compareBtn').addEventListener('click', () => {
   const budget = parseFloat(document.getElementById('compareBudget').value);
-  const selectedIds = Array.from(document.getElementById('compareProduct').selectedOptions)
-    .map(o => parseInt(o.value));
-  
+  const selectedIds = Array.from(document.getElementById('compareProduct').selectedOptions).map(o => parseInt(o.value));
   const userBasket = PRODUCTS.filter(p => selectedIds.includes(p.id));
   const userTotal = userBasket.reduce((sum, p) => sum + p.price, 0);
   const userPoints = userBasket.reduce((sum, p) => sum + p.points + getPromoBonus(p), 0);
-  
   const optimal = calculateOptimalBasket(budget);
   const difference = optimal.totalPoints - userPoints;
-  
   document.getElementById('compareResult').classList.remove('hidden');
   const box = document.getElementById('compareBox');
-  
   if (difference > 0) {
-    box.innerHTML = `
-      <h3>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</h3>
-      <h3 style="margin-top: 1rem;">Najlepsza możliwa kombinacja: ${optimal.totalPoints} punktów za ${optimal.totalValue.toFixed(2)} zł</h3>
-      <p style="color: #D32F2F; font-size: 1.2rem; margin-top: 1rem; font-weight: 700;">
-        Tracisz ${difference} punktów!
-      </p>
-    `;
+    box.innerHTML = `<h3>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</h3><h3 style="margin-top: 1rem;">Najlepsza możliwa kombinacja: ${optimal.totalPoints} punktów za ${optimal.totalValue.toFixed(2)} zł</h3><p style="color: #D32F2F; font-size: 1.2rem; margin-top: 1rem; font-weight: 700;">Tracisz ${difference} punktów!</p>`;
   } else if (difference === 0) {
-    box.innerHTML = `
-      <h3>Świetny wybór! 🎉</h3>
-      <p>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</p>
-      <p style="color: var(--zabka-green); margin-top: 0.5rem;">To optymalna kombinacja dla tego budżetu!</p>
-    `;
+    box.innerHTML = `<h3>Świetny wybór! 🎉</h3><p>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</p><p style="color: var(--zabka-green); margin-top: 0.5rem;">To optymalna kombinacja dla tego budżetu!</p>`;
   } else {
-    box.innerHTML = `
-      <h3>Twój koszyk jest lepszy niż algorytm! 🚀</h3>
-      <p>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</p>
-      <p>Algorytm: ${optimal.totalPoints} punktów</p>
-    `;
+    box.innerHTML = `<h3>Twój koszyk jest lepszy niż algorytm! 🚀</h3><p>Twój koszyk: ${userPoints} punktów za ${userTotal.toFixed(2)} zł</p><p>Algorytm: ${optimal.totalPoints} punktów</p>`;
   }
 });
 
-// INIT
 loadRankings();
 loadCompareProducts();
 </script>
