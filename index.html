@@ -26,7 +26,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .card h2 { color: var(--zabka-green); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem; }
 .budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.75rem; margin-bottom: 1rem; }
 .budget-btn { background: var(--zabka-gray); border: 2px solid transparent; padding: 0.75rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; text-align: center; }
-.budget-btn:hover, .budget-btn.active { border-color: var(--zabka-light); background: white; transform: translateY(-2px); }
+.budget-btn:hover,.budget-btn.active { border-color: var(--zabka-light); background: white; transform: translateY(-2px); }
 input, select { width: 100%; padding: 0.75rem; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem; }
 input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
 .btn-primary { background: var(--zabka-green); color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.2s; }
@@ -56,7 +56,7 @@ input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
 .chip.active { background: var(--zabka-green); color: white; border-color: var(--zabka-green); }
 .chip:hover { border-color: var(--zabka-light); }
 .category-counter { display: inline-block; background: var(--zabka-light); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.85rem; margin-left: 0.5rem; font-weight: 600; }
-@media (max-width: 768px) { .header h1 { font-size: 1.4rem; } .stats { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) {.header h1 { font-size: 1.4rem; }.stats { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -87,7 +87,7 @@ input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
         <div class="budget-btn" data-budget="100">100 zł</div>
       </div>
       <input type="number" id="customBudget" placeholder="Lub wpisz własną kwotę" step="0.01" min="0">
-      
+
       <label>Kategorie produktów: <span class="category-counter" id="catCounter">Wszystkie</span></label>
       <div class="category-chips">
         <div class="chip active" data-cat="all">Wszystkie</div>
@@ -108,14 +108,14 @@ input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
     <div id="result" class="hidden">
       <div class="card">
         <div class="result-box">
-          <h3 id="resultTitle">Za 37,50 zł możesz zdobyć 1450 punktów</h3>
-          <p id="resultRatio">38,67 pkt za 1 zł</p>
+          <h3 id="resultTitle"></h3>
+          <p id="resultRatio"></p>
         </div>
         <div class="stats">
-          <div class="stat"><div class="stat-value" id="totalValue">37,50 zł</div><div class="stat-label">Wartość koszyka</div></div>
-          <div class="stat"><div class="stat-value" id="totalPoints">1450</div><div class="stat-label">Zdobyte punkty</div></div>
-          <div class="stat"><div class="stat-value" id="pointsPerZl">38,67</div><div class="stat-label">Pkt / 1 zł</div></div>
-          <div class="stat"><div class="stat-value" id="leftover">0,00 zł</div><div class="stat-label">Niewykorzystane</div></div>
+          <div class="stat"><div class="stat-value" id="totalValue">0 zł</div><div class="stat-label">Wartość koszyka</div></div>
+          <div class="stat"><div class="stat-value" id="totalPoints">0</div><div class="stat-label">Zdobyte punkty</div></div>
+          <div class="stat"><div class="stat-value" id="pointsPerZl">0</div><div class="stat-label">Pkt / 1 zł</div></div>
+          <div class="stat"><div class="stat-value" id="leftover">0 zł</div><div class="stat-label">Niewykorzystane</div></div>
         </div>
         <h3 style="margin: 1.5rem 0 1rem; color: var(--zabka-green);">Proponowany koszyk:</h3>
         <div class="product-list" id="cartList"></div>
@@ -146,8 +146,8 @@ input:focus, select:focus { outline: none; border-color: var(--zabka-light); }
       <button class="btn-primary" id="simulateBtn">Symuluj</button>
       <div id="simResult" class="hidden" style="margin-top: 1.5rem;">
         <div class="stats">
-          <div class="stat"><div class="stat-value" id="monthlyPoints">17400</div><div class="stat-label">Punktów miesięcznie</div></div>
-          <div class="stat"><div class="stat-value" id="yearlyPoints">208800</div><div class="stat-label">Punktów rocznie</div></div>
+          <div class="stat"><div class="stat-value" id="monthlyPoints">0</div><div class="stat-label">Punktów miesięcznie</div></div>
+          <div class="stat"><div class="stat-value" id="yearlyPoints">0</div><div class="stat-label">Punktów rocznie</div></div>
         </div>
         <h3 style="margin: 1.5rem 0 1rem; color: var(--zabka-green);">Potencjalne nagrody roczne:</h3>
         <div id="potentialRewards"></div>
@@ -215,7 +215,7 @@ const REWARDS = [
 ];
 
 let selectedBudget = 30;
-let selectedCategories = ["all"];
+let selectedCategories = [];
 
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -240,29 +240,35 @@ document.getElementById('customBudget').addEventListener('input', (e) => {
   document.querySelectorAll('.budget-btn').forEach(b => b.classList.remove('active'));
 });
 
+// POPRAWIONA LOGIKA WYBORU KATEGORII
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const cat = chip.dataset.cat;
+    const allChip = document.querySelector('.chip[data-cat="all"]');
+
     if (cat === 'all') {
+      // Kliknięto "Wszystkie" - wyczyść resztę
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
-      selectedCategories = ['all'];
+      selectedCategories = [];
     } else {
-      const allChip = document.querySelector('.chip[data-cat="all"]');
-      if (allChip.classList.contains('active')) {
-        allChip.classList.remove('active');
-        selectedCategories = [];
-      }
+      // Kliknięto konkretną kategorię
       if (chip.classList.contains('active')) {
+        // Odznacz
         chip.classList.remove('active');
-        selectedCategories = selectedCategories.filter(c => c !== cat);
-        if (selectedCategories.length === 0) {
-          allChip.classList.add('active');
-          selectedCategories = ['all'];
-        }
+        selectedCategories = selectedCategories.filter(c => c!== cat);
       } else {
+        // Zaznacz
         chip.classList.add('active');
-        selectedCategories.push(cat);
+        allChip.classList.remove('active');
+        if (!selectedCategories.includes(cat)) {
+          selectedCategories.push(cat);
+        }
+      }
+
+      // Jeśli nic nie zaznaczone, wróć do "Wszystkie"
+      if (selectedCategories.length === 0) {
+        allChip.classList.add('active');
       }
     }
     updateCategoryCounter();
@@ -271,29 +277,39 @@ document.querySelectorAll('.chip').forEach(chip => {
 
 function updateCategoryCounter() {
   const counter = document.getElementById('catCounter');
-  if (selectedCategories.includes('all')) {
+  const allChip = document.querySelector('.chip[data-cat="all"]');
+
+  if (allChip.classList.contains('active') || selectedCategories.length === 0) {
     counter.textContent = 'Wszystkie';
   } else {
-    counter.textContent = `${selectedCategories.length} ${selectedCategories.length === 1 ? 'wybrana' : 'wybrane'}`;
+    const names = selectedCategories.map(c => {
+      const chip = document.querySelector(`.chip[data-cat="${c}"]`);
+      return chip? chip.textContent : c;
+    });
+    counter.textContent = names.join(' + ');
   }
 }
 
-function calculateOptimalBasket(budget, categories = ["all"]) {
+function calculateOptimalBasket(budget, categories) {
   let availableProducts;
-  if (categories.includes('all')) {
+
+  if (categories.length === 0 || categories.includes('all')) {
     availableProducts = [...PRODUCTS];
   } else {
     availableProducts = PRODUCTS.filter(p => categories.includes(p.cat));
   }
+
   availableProducts.sort((a, b) => {
     const ratioA = (a.points + getPromoBonus(a)) / a.price;
     const ratioB = (b.points + getPromoBonus(b)) / b.price;
     return ratioB - ratioA;
   });
+
   let basket = [];
   let remainingBudget = budget;
   let totalPoints = 0;
   let promosUsed = [];
+
   for (let product of availableProducts) {
     while (remainingBudget >= product.price) {
       if (product.promo === "2za7" && remainingBudget >= 7) {
@@ -321,16 +337,26 @@ function calculateOptimalBasket(budget, categories = ["all"]) {
         promosUsed.push("2+1 gratis - " + product.name);
         continue;
       }
+
       basket.push(product);
       remainingBudget -= product.price;
       totalPoints += product.points;
+
       if (product.promo === "bonus300") {
         totalPoints += 300;
         promosUsed.push("+300 pkt bonus - " + product.name);
       }
     }
   }
-  return { basket, totalValue: budget - remainingBudget, totalPoints, leftover: remainingBudget, promosUsed: [...new Set(promosUsed)], ratio: totalPoints / (budget - remainingBudget) || 0 };
+
+  return {
+    basket,
+    totalValue: budget - remainingBudget,
+    totalPoints,
+    leftover: remainingBudget,
+    promosUsed: [...new Set(promosUsed)],
+    ratio: totalPoints / (budget - remainingBudget) || 0
+  };
 }
 
 function getPromoBonus(product) {
@@ -351,20 +377,27 @@ function displayResult(result) {
   document.getElementById('totalPoints').textContent = result.totalPoints;
   document.getElementById('pointsPerZl').textContent = result.ratio.toFixed(2);
   document.getElementById('leftover').textContent = result.leftover.toFixed(2) + ' zł';
+
   const cartList = document.getElementById('cartList');
   cartList.innerHTML = '';
-  result.basket.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'product-item';
-    div.innerHTML = `<div><div class="product-name">${item.name}</div>${item.note ? `<small style="color: var(--zabka-light);">${item.note}</small>` : ''}</div><div><span class="product-price">${item.price.toFixed(2)} zł</span> • <span class="product-points">${item.points} pkt</span></div>`;
-    cartList.appendChild(div);
-  });
+  if (result.basket.length === 0) {
+    cartList.innerHTML = '<p style="color: #666; text-align: center; padding: 1rem;">Brak produktów dla wybranego budżetu i kategorii</p>';
+  } else {
+    result.basket.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'product-item';
+      div.innerHTML = `<div><div class="product-name">${item.name}</div>${item.note? `<small style="color: var(--zabka-light);">${item.note}</small>` : ''}</div><div><span class="product-price">${item.price.toFixed(2)} zł</span> • <span class="product-points">${item.points} pkt</span></div>`;
+      cartList.appendChild(div);
+    });
+  }
+
   const promosDiv = document.getElementById('promosUsed');
   if (result.promosUsed.length > 0) {
     promosDiv.innerHTML = '<h4 style="margin: 1rem 0 0.5rem; color: var(--zabka-green);">Wykorzystane promocje:</h4>' + result.promosUsed.map(p => `<div class="tip">✓ ${p}</div>`).join('');
   } else {
     promosDiv.innerHTML = '';
   }
+
   const tipsDiv = document.getElementById('tips');
   let tips = [];
   if (result.leftover >= 1.99 && result.leftover < 5) {
